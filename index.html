@@ -33,7 +33,7 @@
         display: grid;
         place-items: center;
         padding: clamp(12px, 3vw, 32px);
-        padding-bottom: calc(clamp(86px, 14svh, 132px) + env(safe-area-inset-bottom));
+        padding-bottom: calc(clamp(186px, 24svh, 232px) + env(safe-area-inset-bottom));
         background:
           radial-gradient(circle at 50% 32%, var(--bg-soft), transparent 42%),
           linear-gradient(180deg, var(--bg-soft), var(--bg));
@@ -80,6 +80,23 @@
         background: var(--panel);
         backdrop-filter: blur(16px);
         box-shadow: 0 16px 36px rgba(84, 78, 66, 0.1);
+      }
+
+      .bottom-stack {
+        position: fixed;
+        left: max(12px, env(safe-area-inset-left));
+        right: max(12px, env(safe-area-inset-right));
+        bottom: max(12px, env(safe-area-inset-bottom));
+        display: grid;
+        justify-items: center;
+        gap: 10px;
+        pointer-events: none;
+      }
+
+      .bottom-stack .toolbar,
+      .bottom-stack .page-qr {
+        position: static;
+        pointer-events: auto;
       }
 
       .swatches {
@@ -267,6 +284,25 @@
         text-align: center;
       }
 
+      .page-qr {
+        display: grid;
+        place-items: center;
+        width: 112px;
+        height: 112px;
+        padding: 7px;
+        border: 1px solid rgba(91, 84, 70, 0.13);
+        border-radius: 8px;
+        background: rgba(255, 252, 245, 0.82);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 12px 26px rgba(84, 78, 66, 0.09);
+      }
+
+      .page-qr img,
+      .page-qr canvas {
+        width: 96px;
+        height: 96px;
+      }
+
       .readout {
         position: absolute;
         width: 1px;
@@ -299,7 +335,7 @@
       @media (max-width: 640px) {
         body {
           padding-inline: 10px;
-          padding-bottom: calc(104px + env(safe-area-inset-bottom));
+          padding-bottom: calc(218px + env(safe-area-inset-bottom));
         }
 
         .stage {
@@ -308,6 +344,17 @@
 
         .toolbar {
           max-width: calc(100vw - 20px);
+        }
+
+        .page-qr {
+          width: 98px;
+          height: 98px;
+        }
+
+        .page-qr img,
+        .page-qr canvas {
+          width: 84px;
+          height: 84px;
         }
 
         .profile-strip {
@@ -339,6 +386,10 @@
         .toolbar {
           padding: 7px 9px;
         }
+
+        .page-qr {
+          display: none;
+        }
       }
     </style>
   </head>
@@ -354,15 +405,18 @@
       <canvas id="cat" width="760" height="760" aria-label="cat looking forward"></canvas>
     </main>
 
-    <section class="toolbar" aria-label="controls">
-      <div class="swatches" id="swatches" aria-label="background palette"></div>
-      <input id="colorPicker" type="color" value="#eadfca" aria-label="custom background color" />
-      <div class="profile-strip" id="profileStrip" aria-live="polite"></div>
-      <div class="readout" aria-live="polite">
-        <strong id="label">center</strong>
-        <span id="detail">frame_front.webp</span>
-      </div>
-    </section>
+    <div class="bottom-stack">
+      <section class="toolbar" aria-label="controls">
+        <div class="swatches" id="swatches" aria-label="background palette"></div>
+        <input id="colorPicker" type="color" value="#eadfca" aria-label="custom background color" />
+        <div class="profile-strip" id="profileStrip" aria-live="polite"></div>
+        <div class="readout" aria-live="polite">
+          <strong id="label">center</strong>
+          <span id="detail">frame_front.webp</span>
+        </div>
+      </section>
+      <div class="page-qr" id="pageQrCode" aria-label="当前页面二维码"></div>
+    </div>
 
     <div class="modal" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
       <section class="settings-panel">
@@ -372,7 +426,7 @@
         </div>
         <div class="field">
           <label for="catName">猫咪姓名</label>
-          <input id="catName" type="text" autocomplete="off" placeholder="例如：卡门" />
+          <input id="catName" type="text" autocomplete="off" maxlength="12" placeholder="例如：卡门" />
         </div>
         <div class="field">
           <label for="catBirthday">出生日期</label>
@@ -380,11 +434,7 @@
         </div>
         <div class="field">
           <label for="catPhone">电话</label>
-          <input id="catPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="联系电话" />
-        </div>
-        <div class="qr-card">
-          <div id="qrCode" aria-label="当前链接二维码"></div>
-          <p class="qr-url" id="qrUrl"></p>
+          <input id="catPhone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" placeholder="联系电话" />
         </div>
       </section>
     </div>
@@ -493,8 +543,7 @@
       const catBirthday = document.querySelector("#catBirthday");
       const catPhone = document.querySelector("#catPhone");
       const profileStrip = document.querySelector("#profileStrip");
-      const qrUrl = document.querySelector("#qrUrl");
-      const qrCode = document.querySelector("#qrCode");
+      const pageQrCode = document.querySelector("#pageQrCode");
       const atlasRows = [];
       const front = new Image();
       let loaded = 0;
@@ -503,6 +552,12 @@
       let currentAngle = null;
       let currentLabel = "";
       let lastDrawnAngle = null;
+      const DEFAULT_PROFILE = {
+        name: "卡门",
+        birthday: "",
+        phone: "不公开",
+        birthdayText: "2014 年收养",
+      };
 
       function circularDistance(a, b) {
         return Math.abs(((a - b + 180) % 360) - 180);
@@ -640,13 +695,13 @@
       function loadCatProfile() {
         try {
           const saved = JSON.parse(localStorage.getItem("catProfile") || "{}");
-          catName.value = saved.name || "";
+          catName.value = saved.name || DEFAULT_PROFILE.name;
           catBirthday.value = saved.birthday || "";
-          catPhone.value = saved.phone || "";
+          catPhone.value = saved.phone || DEFAULT_PROFILE.phone;
         } catch {
-          catName.value = "";
-          catBirthday.value = "";
-          catPhone.value = "";
+          catName.value = DEFAULT_PROFILE.name;
+          catBirthday.value = DEFAULT_PROFILE.birthday;
+          catPhone.value = DEFAULT_PROFILE.phone;
         }
         renderCatProfile();
       }
@@ -674,7 +729,7 @@
       function renderCatProfile() {
         const items = [
           ["姓名", catName.value.trim()],
-          ["生日", formatBirthday(catBirthday.value)],
+          ["生日", formatBirthday(catBirthday.value) || DEFAULT_PROFILE.birthdayText],
           ["电话", catPhone.value.trim()],
         ].filter((item) => item[1]);
 
@@ -700,13 +755,12 @@
 
       function renderQrCode() {
         const url = window.location.href;
-        qrUrl.textContent = url;
-        qrCode.textContent = "";
+        pageQrCode.textContent = "";
         if (window.QRCode) {
-          new QRCode(qrCode, {
+          new QRCode(pageQrCode, {
             text: url,
-            width: 148,
-            height: 148,
+            width: 96,
+            height: 96,
             colorDark: "#2d332e",
             colorLight: "#ffffff",
             correctLevel: QRCode.CorrectLevel.M,
