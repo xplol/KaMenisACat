@@ -1,6 +1,6 @@
 # KaMenisCat
 
-![KaMenisCat 封面](docs/cover.png)
+![KaMenisCat 封面](img/cover.png)
 
 ## 博主独白
 
@@ -23,7 +23,7 @@ KaMenisCat 是一个会跟随鼠标方向转头的互动猫咪网页。项目从
 
 ### 视频生成提示词
 
-![视频生成提示词](docs/prompt-text.png)
+![视频生成提示词](img/prompt-text.png)
 
 文字版：
 
@@ -33,22 +33,22 @@ KaMenisCat 是一个会跟随鼠标方向转头的互动猫咪网页。项目从
 
 ### 静态 HTML 制作要求
 
-![静态 HTML 制作要求](docs/implementation-prompt.png)
+![静态 HTML 制作要求](img/implementation-prompt.png)
 
 核心要求：
 
-- 用提供的视频生成 `sprite.webp`。
+- 用提供的视频生成透明 sprite 素材。
 - 角色根据鼠标方向转头。
 - 必须先抽帧生成 contact sheet，并查看实际朝向。
 - 建立 `ANGLE_KEYS` 角度到帧号校准表。
 - 禁止只用 `angle / 360 * frames` 的线性映射。
 - 绿幕或纯色背景要自动抠成透明，保住主体，不要误抠白色和灰色区域。
-- 最终生成 `index.html`、`sprite.webp`、`frame_front.webp`。
+- 最终生成 `index.html`、`sprite-row-*.webp`、`frame_front.webp`。
 - 用本地浏览器验证上、右、下、左、左上、左下、中心都正常。
 
 ### 角色运动说明图
 
-![角色运动说明图](docs/motion-reference.png)
+![角色运动说明图](img/motion-reference.png)
 
 运动参考：
 
@@ -90,7 +90,6 @@ http://127.0.0.1:8765/index.html
 - `index.html`：互动页面主体。
 - `frame_front.webp`：猫咪正面中心帧。
 - `sprite-row-0.webp` 到 `sprite-row-5.webp`：运行时使用的分行 sprite atlas。
-- `sprite.webp`：完整 sprite atlas。
 - `asset-meta.json`：帧尺寸、角度映射和素材元数据。
 - `make_assets.py`：从视频生成透明 WebP 素材的脚本。
 - `qrcode.min.js`：本地二维码生成库。
