@@ -1,0 +1,447 @@
+{
+  "frameSize": 760,
+  "atlasCols": 12,
+  "angleStep": 5,
+  "centerFrame": 0,
+  "angleKeys": [
+    {
+      "angle": 0,
+      "sourceFrame": 204,
+      "label": "right",
+      "spriteIndex": 0
+    },
+    {
+      "angle": 5,
+      "sourceFrame": 206,
+      "label": "right",
+      "spriteIndex": 1
+    },
+    {
+      "angle": 10,
+      "sourceFrame": 209,
+      "label": "right",
+      "spriteIndex": 2
+    },
+    {
+      "angle": 15,
+      "sourceFrame": 212,
+      "label": "right",
+      "spriteIndex": 3
+    },
+    {
+      "angle": 20,
+      "sourceFrame": 215,
+      "label": "right",
+      "spriteIndex": 4
+    },
+    {
+      "angle": 25,
+      "sourceFrame": 219,
+      "label": "right-down",
+      "spriteIndex": 5
+    },
+    {
+      "angle": 30,
+      "sourceFrame": 223,
+      "label": "right-down",
+      "spriteIndex": 6
+    },
+    {
+      "angle": 35,
+      "sourceFrame": 227,
+      "label": "right-down",
+      "spriteIndex": 7
+    },
+    {
+      "angle": 40,
+      "sourceFrame": 230,
+      "label": "right-down",
+      "spriteIndex": 8
+    },
+    {
+      "angle": 45,
+      "sourceFrame": 232,
+      "label": "right-down",
+      "spriteIndex": 9
+    },
+    {
+      "angle": 50,
+      "sourceFrame": 235,
+      "label": "right-down",
+      "spriteIndex": 10
+    },
+    {
+      "angle": 55,
+      "sourceFrame": 239,
+      "label": "right-down",
+      "spriteIndex": 11
+    },
+    {
+      "angle": 60,
+      "sourceFrame": 242,
+      "label": "down",
+      "spriteIndex": 12
+    },
+    {
+      "angle": 65,
+      "sourceFrame": 245,
+      "label": "down",
+      "spriteIndex": 13
+    },
+    {
+      "angle": 70,
+      "sourceFrame": 251,
+      "label": "down",
+      "spriteIndex": 14
+    },
+    {
+      "angle": 75,
+      "sourceFrame": 257,
+      "label": "down",
+      "spriteIndex": 15
+    },
+    {
+      "angle": 80,
+      "sourceFrame": 264,
+      "label": "down",
+      "spriteIndex": 16
+    },
+    {
+      "angle": 85,
+      "sourceFrame": 270,
+      "label": "down",
+      "spriteIndex": 17
+    },
+    {
+      "angle": 90,
+      "sourceFrame": 276,
+      "label": "down",
+      "spriteIndex": 18
+    },
+    {
+      "angle": 95,
+      "sourceFrame": 281,
+      "label": "down",
+      "spriteIndex": 19
+    },
+    {
+      "angle": 100,
+      "sourceFrame": 286,
+      "label": "down",
+      "spriteIndex": 20
+    },
+    {
+      "angle": 105,
+      "sourceFrame": 290,
+      "label": "down",
+      "spriteIndex": 21
+    },
+    {
+      "angle": 110,
+      "sourceFrame": 295,
+      "label": "down",
+      "spriteIndex": 22
+    },
+    {
+      "angle": 115,
+      "sourceFrame": 300,
+      "label": "down",
+      "spriteIndex": 23
+    },
+    {
+      "angle": 120,
+      "sourceFrame": 305,
+      "label": "down",
+      "spriteIndex": 24
+    },
+    {
+      "angle": 125,
+      "sourceFrame": 311,
+      "label": "left-down",
+      "spriteIndex": 25
+    },
+    {
+      "angle": 130,
+      "sourceFrame": 316,
+      "label": "left-down",
+      "spriteIndex": 26
+    },
+    {
+      "angle": 135,
+      "sourceFrame": 321,
+      "label": "left-down",
+      "spriteIndex": 27
+    },
+    {
+      "angle": 140,
+      "sourceFrame": 326,
+      "label": "left-down",
+      "spriteIndex": 28
+    },
+    {
+      "angle": 145,
+      "sourceFrame": 331,
+      "label": "left-down",
+      "spriteIndex": 29
+    },
+    {
+      "angle": 150,
+      "sourceFrame": 336,
+      "label": "left-down",
+      "spriteIndex": 30
+    },
+    {
+      "angle": 155,
+      "sourceFrame": 338,
+      "label": "left-down",
+      "spriteIndex": 31
+    },
+    {
+      "angle": 160,
+      "sourceFrame": 340,
+      "label": "left-down",
+      "spriteIndex": 32
+    },
+    {
+      "angle": 165,
+      "sourceFrame": 342,
+      "label": "left",
+      "spriteIndex": 33
+    },
+    {
+      "angle": 170,
+      "sourceFrame": 344,
+      "label": "left",
+      "spriteIndex": 34
+    },
+    {
+      "angle": 175,
+      "sourceFrame": 346,
+      "label": "left",
+      "spriteIndex": 35
+    },
+    {
+      "angle": 180,
+      "sourceFrame": 348,
+      "label": "left",
+      "spriteIndex": 36
+    },
+    {
+      "angle": 185,
+      "sourceFrame": 352,
+      "label": "left",
+      "spriteIndex": 37
+    },
+    {
+      "angle": 190,
+      "sourceFrame": 356,
+      "label": "left",
+      "spriteIndex": 38
+    },
+    {
+      "angle": 195,
+      "sourceFrame": 361,
+      "label": "left-up",
+      "spriteIndex": 39
+    },
+    {
+      "angle": 200,
+      "sourceFrame": 365,
+      "label": "left-up",
+      "spriteIndex": 40
+    },
+    {
+      "angle": 205,
+      "sourceFrame": 369,
+      "label": "left-up",
+      "spriteIndex": 41
+    },
+    {
+      "angle": 210,
+      "sourceFrame": 374,
+      "label": "left-up",
+      "spriteIndex": 42
+    },
+    {
+      "angle": 215,
+      "sourceFrame": 378,
+      "label": "left-up",
+      "spriteIndex": 43
+    },
+    {
+      "angle": 220,
+      "sourceFrame": 382,
+      "label": "left-up",
+      "spriteIndex": 44
+    },
+    {
+      "angle": 225,
+      "sourceFrame": 387,
+      "label": "left-up",
+      "spriteIndex": 45
+    },
+    {
+      "angle": 230,
+      "sourceFrame": 392,
+      "label": "left-up",
+      "spriteIndex": 46
+    },
+    {
+      "angle": 235,
+      "sourceFrame": 397,
+      "label": "left-up",
+      "spriteIndex": 47
+    },
+    {
+      "angle": 240,
+      "sourceFrame": 402,
+      "label": "up",
+      "spriteIndex": 48
+    },
+    {
+      "angle": 245,
+      "sourceFrame": 407,
+      "label": "up",
+      "spriteIndex": 49
+    },
+    {
+      "angle": 250,
+      "sourceFrame": 410,
+      "label": "up",
+      "spriteIndex": 50
+    },
+    {
+      "angle": 255,
+      "sourceFrame": 412,
+      "label": "up",
+      "spriteIndex": 51
+    },
+    {
+      "angle": 260,
+      "sourceFrame": 415,
+      "label": "up",
+      "spriteIndex": 52
+    },
+    {
+      "angle": 265,
+      "sourceFrame": 418,
+      "label": "up",
+      "spriteIndex": 53
+    },
+    {
+      "angle": 270,
+      "sourceFrame": 420,
+      "label": "up",
+      "spriteIndex": 54
+    },
+    {
+      "angle": 275,
+      "sourceFrame": 420,
+      "label": "up",
+      "spriteIndex": 55
+    },
+    {
+      "angle": 280,
+      "sourceFrame": 420,
+      "label": "up",
+      "spriteIndex": 56
+    },
+    {
+      "angle": 285,
+      "sourceFrame": 81,
+      "label": "right-up",
+      "spriteIndex": 57
+    },
+    {
+      "angle": 290,
+      "sourceFrame": 81,
+      "label": "right-up",
+      "spriteIndex": 58
+    },
+    {
+      "angle": 295,
+      "sourceFrame": 86,
+      "label": "right-up",
+      "spriteIndex": 59
+    },
+    {
+      "angle": 300,
+      "sourceFrame": 96,
+      "label": "right-up",
+      "spriteIndex": 60
+    },
+    {
+      "angle": 305,
+      "sourceFrame": 105,
+      "label": "right-up",
+      "spriteIndex": 61
+    },
+    {
+      "angle": 310,
+      "sourceFrame": 114,
+      "label": "right-up",
+      "spriteIndex": 62
+    },
+    {
+      "angle": 315,
+      "sourceFrame": 123,
+      "label": "right-up",
+      "spriteIndex": 63
+    },
+    {
+      "angle": 320,
+      "sourceFrame": 131,
+      "label": "right-up",
+      "spriteIndex": 64
+    },
+    {
+      "angle": 325,
+      "sourceFrame": 140,
+      "label": "right-up",
+      "spriteIndex": 65
+    },
+    {
+      "angle": 330,
+      "sourceFrame": 148,
+      "label": "right-up",
+      "spriteIndex": 66
+    },
+    {
+      "angle": 335,
+      "sourceFrame": 157,
+      "label": "right-up",
+      "spriteIndex": 67
+    },
+    {
+      "angle": 340,
+      "sourceFrame": 166,
+      "label": "right-up",
+      "spriteIndex": 68
+    },
+    {
+      "angle": 345,
+      "sourceFrame": 175,
+      "label": "right-up",
+      "spriteIndex": 69
+    },
+    {
+      "angle": 350,
+      "sourceFrame": 185,
+      "label": "right",
+      "spriteIndex": 70
+    },
+    {
+      "angle": 355,
+      "sourceFrame": 194,
+      "label": "right",
+      "spriteIndex": 71
+    }
+  ],
+  "bbox": [
+    120,
+    56,
+    834,
+    914
+  ],
+  "note": "ANGLE_KEYS were calibrated from contact_sheet.jpg; mapping is nearest-key, not linear frame/angle sampling."
+}
