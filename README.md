@@ -1,6 +1,6 @@
-# KaMenisCat
+# KaMenisACat
 
-![KaMenisCat 封面](img/cover.png)
+![KaMenisACat 封面](img/cover.png)
 
 ## 博主独白
 
@@ -8,7 +8,7 @@
 
 ## 项目介绍
 
-KaMenisCat 是一个会跟随鼠标方向转头的互动猫咪网页。项目从绿幕视频中抽帧、抠图并生成精细的 WebP sprite，让猫咪在页面中根据鼠标位置自然地看向上、下、左、右和各个斜向。
+KaMenisACat 是一个会跟随鼠标方向转头的互动猫咪网页。项目从绿幕视频中抽帧、抠图并生成精细的 WebP sprite，让猫咪在页面中根据鼠标位置自然地看向上、下、左、右和各个斜向。
 
 ## 功能
 
